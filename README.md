@@ -12,7 +12,7 @@
 
 手动取消勾选指纹设备的 **"允许计算机关闭此设备以节省电源"** 后，关机重启该选项**自动恢复勾选**，导致系统休眠时指纹传感器被断电，无法指纹唤醒。
 
-**已验证环境**：Windows 10 21H2 LTSC + EgisTec Touch Fingerprint Sensor (`USB\VID_1C7A&PID_0575\0E7235A4`)。
+**已验证环境**：Windows 10 21H2 LTSC + EgisTec Touch Fingerprint Sensor 。
 
 **核心思路**：通过 WMI 直接修改设备电源策略，并用**开机延迟计划任务**在驱动加载完成后自动执行，绕过系统的自动重置。
 
@@ -31,14 +31,16 @@ Get-PnpDevice -Class Biometric -Status OK | Select-Object FriendlyName, Instance
 记下你的指纹设备对应的 `InstanceId`，例如：
 
 ```
-USB\VID_1C7A&PID_0575\0E7235A4
+USB\VID_1C7A&PID_0570\5&1A2B3C4D&0&1
 ```
 
 ---
 
 ### 第 2 步：保存脚本
 
-将以下内容保存为 `Disable-FingerprintPowerSaving.ps1`（建议放在 `C:\Scripts\` 下）：
+将以下内容保存为 `Disable-FingerprintPowerSaving.ps1`（放在合适文件夹下，复制脚本文件的位置备用）：
+
+或者下载已发布的文件 `Disable-FingerprintPowerSaving.ps1`
 
 ```powershell
 # ============================================================
@@ -62,7 +64,7 @@ if (-not $isElevated) {
 # ---------- 提权结束 ----------
 
 # ===== 替换为第 1 步获取的 InstanceId =====
-$deviceId = 'USB\VID_1C7A&PID_0575\0E7235A4'
+$deviceId = '你的指纹设备的InstanceId'
 # ==========================================
 
 $changed = $false
@@ -168,7 +170,7 @@ powershell -ExecutionPolicy Bypass -File "C:\Scripts\Disable-FingerprintPowerSav
 
 ## 💻 兼容性
 
-- ✅ 验证于 Windows 10 21H2 LTSC + EgisTec (VID_1C7A&PID_0575)
+- ✅ 验证于 Windows 10 21H2 LTSC + EgisTec 
 - ✅ 适用于所有通过 WMI 暴露 `MSPower_DeviceEnable` 的 PnP 生物识别设备
 - ⚠️ 需 PowerShell 5.1+（Windows 10 自带）
 - ⚠️ 脚本中的 `$deviceId` **必须替换为你自己的 InstanceId**
