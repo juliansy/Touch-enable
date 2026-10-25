@@ -1,6 +1,3 @@
-# Touch-enable
-Disable the "Allow the computer to turn off this device to save power" option for the fingerprint device.
-
 # Windows-Fingerprint-PowerFix
 
 > 解决 Windows 10/11 开机后指纹设备"允许计算机关闭此设备以节省电源"被自动重新勾选，导致休眠后无法用指纹唤醒的问题。
