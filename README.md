@@ -40,7 +40,7 @@ USB\VID_1C7A&PID_0570\5&1A2B3C4D&0&1
 
 将以下内容保存为 `Disable-FingerprintPowerSaving.ps1`（放在合适文件夹下，复制脚本文件的位置备用）：
 
-或者下载已发布的文件 `Disable-FingerprintPowerSaving.ps1`
+或者下载 [Disable-FingerprintPowerSaving.ps1](https://github.com/juliansy/Windows-Fingerprint-PowerFix/blob/main/Disable-FingerprintPowerSaving.ps1)
 
 ```powershell
 # ============================================================
