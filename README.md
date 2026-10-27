@@ -74,6 +74,8 @@ $deviceId = '你的指纹设备的InstanceId'
   -NoProfile -ExecutionPolicy Bypass -File "C:\Scripts\Disable-FingerprintPowerSaving.ps1"
   ```
 
+- ⚠️这里的 `C:\Scripts\` 要替换为你保存的脚本路径。
+
 **④ 条件**
 - 取消勾选 ❌ **"只有在计算机使用交流电源时才启动此任务"**
 - 取消其他所有节能相关限制
