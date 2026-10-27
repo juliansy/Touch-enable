@@ -54,19 +54,7 @@ $deviceId = '你的指纹设备的InstanceId'
 
 ---
 
-### 第 3 步：手动运行验证
-
-双击脚本，或在 PowerShell 中执行：
-
-```powershell
-powershell -ExecutionPolicy Bypass -File "C:\Scripts\Disable-FingerprintPowerSaving.ps1"
-```
-
-首次运行会弹出 **UAC 确认框**，点击"是"。看到绿色 `[已禁用节能]` 输出即表示成功。回到设备管理器 → 指纹设备 → 电源管理，确认选项状态。
-
----
-
-### 第 4 步：配置开机自动执行
+### 第 3 步：配置开机自动执行
 
 打开 **任务计划程序**（`Win + R` → `taskschd.msc`），点击右侧 **"创建任务..."**。
 
@@ -111,7 +99,7 @@ powershell -ExecutionPolicy Bypass -File "C:\Scripts\Disable-FingerprintPowerSav
 
 | 现象 | 原因 | 处理 |
 |---|---|---|
-| `无法从客户端中访问 CIM 资源` | 未提权 | 检查脚本开头的提权代码是否完整，或用管理员 PowerShell 手动运行 |
+| `无法从客户端中访问 CIM 资源` | 未提权 | 确认勾选"使用最高权限运行"，或用管理员 PowerShell 手动运行 |
 | `未找到目标设备` | `InstanceId` 不匹配 | 重新执行第 1 步，检查 `$deviceId` 是否完全一致 |
 | 手动运行成功、重启后仍失效 | 任务执行过早 | 触发器延迟改为 `2 分钟` |
 | 任务报 `0x80070005` | 权限不足 | 确认勾选"使用最高权限运行" |
