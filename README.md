@@ -38,7 +38,9 @@ USB\VID_1C7A&PID_0570\5&1A2B3C4D&0&1
 
 ### 第 2 步：下载脚本
 
-下载脚本并放在合适文件夹下，复制脚本文件的位置备用 [Disable-FingerprintPowerSaving.ps1](https://github.com/juliansy/Windows-Fingerprint-PowerFix/blob/main/Disable-FingerprintPowerSaving.ps1)
+下载脚本[Disable-FingerprintPowerSaving.ps1](https://github.com/juliansy/Windows-Fingerprint-PowerFix/blob/main/Disable-FingerprintPowerSaving.ps1)并放在合适文件夹下。
+
+⚠️ 复制脚本文件的位置备用。
 
 ⚠️ **脚本中的 `deviceId` 需要替换为步骤 1 获取的 InstanceId**
 
